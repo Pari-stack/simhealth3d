@@ -12,7 +12,7 @@ function HumanModel({ url }) {
   });
   
   // Center the model at origin and scale appropriately
-  scene.position.set(0, -1, 0);
+  scene.position.set(0, -2.5, 0);
   scene.scale.set(0.8, 0.8, 0.8);
   
   return <primitive object={scene} />;
