@@ -23,7 +23,7 @@ useGLTF.preload("/male_body.glb");
 
 export default function App() {
   return (
-    <Canvas camera={{ position: [0, -4, 12], fov: 75 }}>
+    <Canvas camera={{ position: [0, -4, 16], fov: 75 }}>
       <ambientLight intensity={0.5} />
       <directionalLight position={[10, 10, 5]} intensity={1} />
       <directionalLight position={[-10, -10, -5]} intensity={0.3} />
