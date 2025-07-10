@@ -1,6 +1,23 @@
+
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
-import HomeScreen from "./Home"; 
+import { OrbitControls, useGLTF } from "@react-three/drei";
+import { Suspense } from "react";
+
+function HumanModel({ url }) {
+  const { scene } = useGLTF(url);
+
+  scene.traverse((child) => {
+    if (child.isMesh) {
+      child.material.color.set("#77efff");
+    }
+  });
+
+  return (
+    <group position={[0, -14, 0]} scale={[0.4, 0.4, 0.4]}>
+      <primitive object={scene} />
+    </group>
+  );
+}
 
 export default function Splash() {
   return (
@@ -25,7 +42,6 @@ export default function Splash() {
           <directionalLight position={[5, 5, 5]} />
           <Suspense fallback={null}>
             <HumanModel url="/male_body.glb" />
-            {/* You can later add more animated 3D elements here */}
           </Suspense>
           <OrbitControls enableZoom={false} enablePan={false} />
         </Canvas>
